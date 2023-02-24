@@ -1,6 +1,6 @@
 /**
  * Switch Height & Width
- * v.1.0, 2022-02-23
+ * v.1.0.1, 2022-02-23
  * 
  * https://github.com/ogmaresca/easydiffusion-plugins
  */
@@ -15,7 +15,7 @@
      * @param {Array<string>} classes
      * @returns {HTMLElement}
      */
-     function createElement(tagName, attributes, classes, text) {
+    function createElement(tagName, attributes, classes, text) {
         const element = document.createElement(tagName);
         if (attributes) {
             Object.entries(attributes).forEach(([key, value]) => {
@@ -31,7 +31,9 @@
         return element;
     }
 
+    /** @type {HTMLSelectElement} */
     const widthElem = document.getElementById('width');
+    /** @type {HTMLSelectElement} */
     const heightElem = document.getElementById('height');
 
     const switchButton = createElement(
@@ -47,6 +49,10 @@
 
         widthElem.value = height;
         heightElem.value = width;
+
+        // Save the new values on reloads
+        widthElem.dispatchEvent(new Event('change'));
+        heightElem.dispatchEvent(new Event('change'));
     });
 
     // I want to use arrow-up-arrow-down, but that's a pro icon
