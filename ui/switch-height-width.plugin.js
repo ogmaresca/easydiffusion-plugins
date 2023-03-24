@@ -1,6 +1,6 @@
 /**
  * Switch Height & Width
- * v.1.0.2, 2022-02-23
+ * v.1.0.3, 2022-03-24
  * 
  * https://github.com/ogmaresca/easydiffusion-plugins
  */
@@ -8,29 +8,6 @@
  "use strict";
 
  (function() {
-     /**
-      * 
-      * @param {string} tag 
-      * @param {object} attributes
-      * @param {Array<string>} classes
-      * @returns {HTMLElement}
-      */
-     function createElement(tagName, attributes, classes, text) {
-         const element = document.createElement(tagName);
-         if (attributes) {
-             Object.entries(attributes).forEach(([key, value]) => {
-                 element.setAttribute(key, value);
-             });
-         }
-         if (classes) {
-             classes.forEach(className => element.classList.add(className));
-         }
-         if (text) {
-             element.appendChild(document.createTextNode(text));
-         }
-         return element;
-     }
- 
      /** @type {HTMLSelectElement} */
      const widthElem = document.getElementById('width');
      /** @type {HTMLSelectElement} */
